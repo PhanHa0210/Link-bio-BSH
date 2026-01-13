@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Trang bio cá nhân" />
+    <title>Link Bio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: [
+                'Nunito',
+                'ui-sans-serif',
+                'system-ui',
+                'Segoe UI',
+                'Roboto',
+                'Helvetica',
+                'Arial',
+                'Apple Color Emoji',
+                'Segoe UI Emoji',
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background: linear-gradient(
+          163.389deg,
+          rgb(255, 255, 255) 3.3524%,
+          rgb(255, 255, 255) 28.654%,
+          rgb(253, 237, 241) 65.453%,
+          rgb(247, 180, 201) 99.027%
+        );
+        background-attachment: fixed;
+        min-height: 100vh;
+        font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          'Apple Color Emoji', 'Segoe UI Emoji';
+      }
+
+      #cover {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      #avatar {
+        width: 151.29px;
+        height: 190.38px;
+        display: block;
+        /* Tối ưu rendering cho ảnh chất lượng cao */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: auto;
+        /* Tránh blur khi scale */
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        object-fit: contain;
+        will-change: transform, opacity;
+        animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(15px) translateZ(0);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) translateZ(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px) translateZ(0);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) translateZ(0);
+        }
+      }
+
+      .info-card {
+        will-change: transform, opacity;
+        animation: slideInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+      }
+
+      @keyframes unevenBounce1 {
+        0% {
+          transform: translateY(0) scale(1);
+          box-shadow: 2px 2px 1px 0px black;
+        }
+        18% {
+          transform: translateY(-4px) scale(1.02);
+          box-shadow: 2px 2px 1px 0px black, 0 0 8px rgba(239, 103, 144, 0.3);
+        }
+        36% {
+          transform: translateY(0) scale(1);
+          box-shadow: 2px 2px 1px 0px black;
+        }
+        52% {
+          transform: translateY(-3px) scale(1.015);
+          box-shadow: 2px 2px 1px 0px black, 0 0 6px rgba(239, 103, 144, 0.25);
+        }
+        68% {
+          transform: translateY(0) scale(1);
+          box-shadow: 2px 2px 1px 0px black;
+        }
+        85% {
+          transform: translateY(-2px) scale(1.01);
+          box-shadow: 2px 2px 1px 0px black, 0 0 5px rgba(239, 103, 144, 0.2);
+        }
+        100% {
+          transform: translateY(0) scale(1);
+          box-shadow: 2px 2px 1px 0px black;
+        }
+      }
+
+      @keyframes unevenBounce2 {
+        0% {
+          transform: translateY(0) scale(1);
+          box-shadow: 2px 2px 1px 0px black;
+        }
+        22% {
+          transform: translateY(-3px) scale(1.015);
+          box-shadow: 2px 2px 1px 0px black, 0 0 7px rgba(239, 103, 144, 0.28);
+        }
+        44% {
+          transform: translateY(0) scale(1);
+          box-shadow: 2px 2px 1px 0px black;
+        }
+        58% {
+          transform: translateY(-4px) scale(1.02);
+          box-shadow: 2px 2px 1px 0px black, 0 0 8px rgba(239, 103, 144, 0.3);
+        }
+        72% {
+          transform: translateY(0) scale(1);
+          box-shadow: 2px 2px 1px 0px black;
+        }
+        88% {
+          transform: translateY(-2px) scale(1.01);
+          box-shadow: 2px 2px 1px 0px black, 0 0 5px rgba(239, 103, 144, 0.2);
+        }
+        100% {
+          transform: translateY(0) scale(1);
+          box-shadow: 2px 2px 1px 0px black;
+        }
+      }
+
+      .action-button {
+        animation: slideInUp 1s ease-in-out both;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0; /* Ẩn ban đầu, sẽ hiện khi animation chạy */
+      }
+
+      .action-button.highlight-1 {
+        animation: slideInUp 1s ease-in-out both, unevenBounce1 6s ease-in-out infinite;
+        animation-delay: var(--button-delay, 1s), calc(var(--button-delay, 1s) + 1s);
+      }
+
+      .action-button.highlight-2 {
+        animation: slideInUp 1s ease-in-out both, unevenBounce2 5.5s ease-in-out infinite;
+        animation-delay: var(--button-delay, 1s), calc(var(--button-delay, 1s) + 1s + 0.8s);
+      }
+
+      .action-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.4) !important;
+      }
+
+      .action-button.highlight:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.4), 0 0 15px rgba(239, 103, 144, 0.5) !important;
+        animation-play-state: paused;
+      }
+
+      .action-button:active {
+        transform: translateY(0);
+      }
+
+      .slide-container {
+        width: 100%;
+        max-width: 367px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.6);
+        animation: fadeIn 1s ease-out 1.2s both;
+      }
+
+      .slide-wrapper {
+        display: flex;
+        animation: slideScroll 10s linear infinite;
+      }
+
+      @keyframes slideScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .slide-item {
+        min-width: 100%;
+        width: 100%;
+        display: block;
+        flex-shrink: 0;
+      }
+
+      .slide-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 30px 20px;
+        color: #6b7280;
+        font-size: 14px;
+        animation: fadeIn 1s ease-out 1.5s both;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen font-sans relative">
+    <div class="relative w-full min-h-screen flex flex-col items-center">
+      <!-- Cover Image với Avatar đè lên -->
+      <div class="relative w-full">
+        <img
+          src="assets/images/cover.png"
+          alt="Cover"
+          id="cover"
+          onerror="this.onerror=null; this.style.display='none';"
+        />
+        <!-- Avatar đè lên cover - giống Facebook profile -->
+        <div
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"
+          style="margin-bottom: 15px"
+        >
+          <img
+            src="assets/images/avatar.png"
+            alt="Avatar"
+            id="avatar"
+            onerror="this.onerror=null; this.style.display='none';"
+          />
+        </div>
+      </div>
+
+      <!-- Content Section -->
+      <div class="relative w-full flex flex-col items-center px-4" style="margin-top: 95px">
+        <!-- Name -->
+
+        <!-- Info Card -->
+        <div
+          class="info-card bg-white border border-black rounded-lg shadow-md mb-6 px-4 py-5"
+          style="width: 367px; border-width: 0.5px; box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.6)"
+        >
+          <h1
+            id="name"
+            class="text-xl font-extrabold text-black text-center mb-2"
+            style="font-size: 20px"
+          >
+            BSCK II: Nguyễn Trọng Hùng
+          </h1>
+          <p
+            id="affiliation"
+            class="text-base font-semibold text-black text-center mb-3"
+            style="font-size: 16px"
+          >
+            Bác sĩ bệnh viện Phụ Sản Trung Ương
+          </p>
+          <!-- Separator Line -->
+          <div class="flex justify-center mb-3" id="separatorLine"></div>
+          <p
+            id="role"
+            class="text-base font-semibold text-black text-center"
+            style="font-size: 16px; width: 330px; margin: 0 auto"
+          >
+            Phụ trách chuyên môn chính tại phòng khám Sản Phụ Khoa Màu Hồng.
+          </p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col items-center gap-3" style="width: 345px; margin-bottom: 50px">
+          <div id="linksContainer" class="w-full space-y-3">
+            <!-- Links will be dynamically generated -->
+          </div>
+        </div>
+
+        <!-- Image Slides -->
+        <div class="slide-container mb-6" id="slideContainer">
+          <div class="slide-wrapper" id="slideWrapper">
+            <!-- Slides will be dynamically generated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>© 2026 Link Bio. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
