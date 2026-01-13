@@ -14,13 +14,13 @@ const bioData = {
       type: 'contact',
     },
     {
-      title: 'Địa chỉ phòng khám',
-      url: 'https://share.google/N68SeCpX753jedVR7',
+      title: 'ĐỊA CHỈ PHÒNG KHÁM',
+      url: 'https://maps.app.goo.gl/onxKQLryMBCgWtMA9',
       icon: 'map',
       type: 'location',
     },
     {
-      title: 'Theo dõi lịch khám qua FANPAGE',
+      title: 'XEM LỊCH KHÁM TUẦN NÀY !',
       url: 'https://www.facebook.com/sanphukhoamauhong.bshung/',
       icon: 'facebook',
       type: 'fanpage',
