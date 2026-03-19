@@ -15,7 +15,7 @@ const bioData = {
     },
     {
       title: 'ĐỊA CHỈ PHÒNG KHÁM',
-      url: 'https://maps.app.goo.gl/onxKQLryMBCgWtMA9',
+      url: 'https://maps.app.goo.gl/XZYkZUf2jjDoX2KR9',
       icon: 'map',
       type: 'location',
     },
